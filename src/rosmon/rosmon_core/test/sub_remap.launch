@@ -1,4 +1,0 @@
-<launch>
-	<remap from="abc" to="def" />
-</launch>
-
