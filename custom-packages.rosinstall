@@ -1,0 +1,245 @@
+# Custom rosinstall file for specific ROS Noetic packages
+# Packages requested: ros-base, rosmon, catkin, behaviortree-cpp, image-transport, cv-bridge, 
+# teleop-twist-keyboard, foxglove-bridge, foxglove-msgs, backward-ros, costmap-2d, 
+# tf2-sensor-msgs, libg2o, nodelet, pcl-ros, pcl-conversions, image-transport-plugins,
+# imagezero-image-transport, polled-camera, grid-map, sound-play, eigen-conversions,
+# geodesy, geographic-msgs, geographic-info, tf-conversions, tf2-ros, tf2-eigen,
+# robot-state-publisher, camera-info-manager, stage-ros
+
+# ROS Base
+- tar:
+    local-name: metapackages/ros_base
+    uri: https://github.com/ros-gbp/metapackages-release/archive/release/noetic/ros_base/1.5.0-1.tar.gz
+    version: metapackages-release-release-noetic-ros_base-1.5.0-1
+
+# Audio Common (sound_play)
+- tar:
+    local-name: audio_common/sound_play
+    uri: https://github.com/ros-gbp/audio_common-release/archive/release/noetic/sound_play/0.3.18-1.tar.gz
+    version: audio_common-release-release-noetic-sound_play-0.3.18-1
+
+# Backward ROS
+- tar:
+    local-name: backward_ros
+    uri: https://github.com/pal-gbp/backward_ros-release/archive/release/noetic/backward_ros/0.1.7-1.tar.gz
+    version: backward_ros-release-release-noetic-backward_ros-0.1.7-1
+
+# BehaviorTree CPP
+- tar:
+    local-name: behaviortree_cpp
+    uri: https://github.com/ros2-gbp/behaviortree_cpp_v4-release/archive/release/noetic/behaviortree_cpp/4.5.1-1.tar.gz
+    version: behaviortree_cpp_v4-release-release-noetic-behaviortree_cpp-4.5.1-1
+
+# Catkin
+- tar:
+    local-name: catkin
+    uri: https://github.com/ros-gbp/catkin-release/archive/release/noetic/catkin/0.8.12-1.tar.gz
+    version: catkin-release-release-noetic-catkin-0.8.12-1
+
+# Foxglove Bridge
+- tar:
+    local-name: foxglove_bridge
+    uri: https://github.com/foxglove/ros_foxglove_bridge-release/archive/release/noetic/foxglove_bridge/0.8.4-1.tar.gz
+    version: ros_foxglove_bridge-release-release-noetic-foxglove_bridge-0.8.4-1
+
+# Foxglove Messages
+- tar:
+    local-name: foxglove_msgs
+    uri: https://github.com/foxglove/ros_foxglove_msgs-release/archive/release/noetic/foxglove_msgs/2.3.0-1.tar.gz
+    version: ros_foxglove_msgs-release-release-noetic-foxglove_msgs-2.3.0-1
+
+# Geographic Info
+- tar:
+    local-name: geographic_info/geodesy
+    uri: https://github.com/ros-geographic-info/geographic_info-release/archive/release/noetic/geodesy/0.5.6-1.tar.gz
+    version: geographic_info-release-release-noetic-geodesy-0.5.6-1
+- tar:
+    local-name: geographic_info/geographic_info
+    uri: https://github.com/ros-geographic-info/geographic_info-release/archive/release/noetic/geographic_info/0.5.6-1.tar.gz
+    version: geographic_info-release-release-noetic-geographic_info-0.5.6-1
+- tar:
+    local-name: geographic_info/geographic_msgs
+    uri: https://github.com/ros-geographic-info/geographic_info-release/archive/release/noetic/geographic_msgs/0.5.6-1.tar.gz
+    version: geographic_info-release-release-noetic-geographic_msgs-0.5.6-1
+
+# Geometry
+- tar:
+    local-name: geometry/eigen_conversions
+    uri: https://github.com/ros-gbp/geometry-release/archive/release/noetic/eigen_conversions/1.13.4-1.tar.gz
+    version: geometry-release-release-noetic-eigen_conversions-1.13.4-1
+- tar:
+    local-name: geometry/tf_conversions
+    uri: https://github.com/ros-gbp/geometry-release/archive/release/noetic/tf_conversions/1.13.4-1.tar.gz
+    version: geometry-release-release-noetic-tf_conversions-1.13.4-1
+
+# Geometry2 (TF2)
+- tar:
+    local-name: geometry2/tf2_eigen
+    uri: https://github.com/ros-gbp/geometry2-release/archive/release/noetic/tf2_eigen/0.7.10-1.tar.gz
+    version: geometry2-release-release-noetic-tf2_eigen-0.7.10-1
+- tar:
+    local-name: geometry2/tf2_ros
+    uri: https://github.com/ros-gbp/geometry2-release/archive/release/noetic/tf2_ros/0.7.10-1.tar.gz
+    version: geometry2-release-release-noetic-tf2_ros-0.7.10-1
+- tar:
+    local-name: geometry2/tf2_sensor_msgs
+    uri: https://github.com/ros-gbp/geometry2-release/archive/release/noetic/tf2_sensor_msgs/0.7.10-1.tar.gz
+    version: geometry2-release-release-noetic-tf2_sensor_msgs-0.7.10-1
+
+# Grid Map
+- tar:
+    local-name: grid_map/grid_map
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_core
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_core/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_core-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_cv
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_cv/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_cv-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_demos
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_demos/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_demos-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_filters
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_filters/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_filters-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_loader
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_loader/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_loader-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_msgs
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_msgs/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_msgs-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_octomap
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_octomap/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_octomap-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_ros
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_ros/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_ros-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_rviz_plugin
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_rviz_plugin/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_rviz_plugin-1.6.4-1
+- tar:
+    local-name: grid_map/grid_map_visualization
+    uri: https://github.com/anybotics/grid_map-release/archive/release/noetic/grid_map_visualization/1.6.4-1.tar.gz
+    version: grid_map-release-release-noetic-grid_map_visualization-1.6.4-1
+
+# Image Common
+- tar:
+    local-name: image_common/camera_info_manager
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/noetic/camera_info_manager/1.12.1-1.tar.gz
+    version: image_common-release-release-noetic-camera_info_manager-1.12.1-1
+- tar:
+    local-name: image_common/image_transport
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/noetic/image_transport/1.12.1-1.tar.gz
+    version: image_common-release-release-noetic-image_transport-1.12.1-1
+- tar:
+    local-name: image_common/polled_camera
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/noetic/polled_camera/1.12.1-1.tar.gz
+    version: image_common-release-release-noetic-polled_camera-1.12.1-1
+
+# Image Transport Plugins
+- tar:
+    local-name: image_transport_plugins/compressed_depth_image_transport
+    uri: https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/noetic/compressed_depth_image_transport/1.15.0-1.tar.gz
+    version: image_transport_plugins-release-release-noetic-compressed_depth_image_transport-1.15.0-1
+- tar:
+    local-name: image_transport_plugins/compressed_image_transport
+    uri: https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/noetic/compressed_image_transport/1.15.0-1.tar.gz
+    version: image_transport_plugins-release-release-noetic-compressed_image_transport-1.15.0-1
+- tar:
+    local-name: image_transport_plugins/image_transport_plugins
+    uri: https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/noetic/image_transport_plugins/1.15.0-1.tar.gz
+    version: image_transport_plugins-release-release-noetic-image_transport_plugins-1.15.0-1
+- tar:
+    local-name: image_transport_plugins/theora_image_transport
+    uri: https://github.com/ros2-gbp/image_transport_plugins-release/archive/release/noetic/theora_image_transport/1.15.0-1.tar.gz
+    version: image_transport_plugins-release-release-noetic-theora_image_transport-1.15.0-1
+
+# ImageZero Transport
+- tar:
+    local-name: imagezero_transport/imagezero_image_transport
+    uri: https://github.com/swri-robotics-gbp/imagezero_transport-release/archive/release/noetic/imagezero_image_transport/0.2.5-1.tar.gz
+    version: imagezero_transport-release-release-noetic-imagezero_image_transport-0.2.5-1
+
+# LibG2O
+- tar:
+    local-name: libg2o
+    uri: https://github.com/ros-gbp/libg2o-release/archive/release/noetic/libg2o/2020.5.3-1.tar.gz
+    version: libg2o-release-release-noetic-libg2o-2020.5.3-1
+
+# Navigation (costmap_2d)
+- tar:
+    local-name: navigation/costmap_2d
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/noetic/costmap_2d/1.17.3-1.tar.gz
+    version: navigation-release-release-noetic-costmap_2d-1.17.3-1
+
+# Nodelet Core
+- tar:
+    local-name: nodelet_core/nodelet
+    uri: https://github.com/ros-gbp/nodelet_core-release/archive/release/noetic/nodelet/1.11.2-1.tar.gz
+    version: nodelet_core-release-release-noetic-nodelet-1.11.2-1
+- tar:
+    local-name: nodelet_core/nodelet_topic_tools
+    uri: https://github.com/ros-gbp/nodelet_core-release/archive/release/noetic/nodelet_topic_tools/1.11.2-1.tar.gz
+    version: nodelet_core-release-release-noetic-nodelet_topic_tools-1.11.2-1
+
+# Perception PCL
+- tar:
+    local-name: perception_pcl/pcl_conversions
+    uri: https://github.com/ros-gbp/perception_pcl-release/archive/release/noetic/pcl_conversions/1.7.4-1.tar.gz
+    version: perception_pcl-release-release-noetic-pcl_conversions-1.7.4-1
+- tar:
+    local-name: perception_pcl/pcl_ros
+    uri: https://github.com/ros-gbp/perception_pcl-release/archive/release/noetic/pcl_ros/1.7.4-1.tar.gz
+    version: perception_pcl-release-release-noetic-pcl_ros-1.7.4-1
+
+# Robot State Publisher
+- tar:
+    local-name: robot_state_publisher
+    uri: https://github.com/ros-gbp/robot_state_publisher-release/archive/release/noetic/robot_state_publisher/1.15.3-1.tar.gz
+    version: robot_state_publisher-release-release-noetic-robot_state_publisher-1.15.3-1
+
+# ROSMon
+- tar:
+    local-name: rosmon/rosmon
+    uri: https://github.com/xqms/rosmon-release/archive/release/noetic/rosmon/2.5.1-2.tar.gz
+    version: rosmon-release-release-noetic-rosmon-2.5.1-2
+- tar:
+    local-name: rosmon/rosmon_core
+    uri: https://github.com/xqms/rosmon-release/archive/release/noetic/rosmon_core/2.5.1-2.tar.gz
+    version: rosmon-release-release-noetic-rosmon_core-2.5.1-2
+- tar:
+    local-name: rosmon/rosmon_msgs
+    uri: https://github.com/xqms/rosmon-release/archive/release/noetic/rosmon_msgs/2.5.1-2.tar.gz
+    version: rosmon-release-release-noetic-rosmon_msgs-2.5.1-2
+- tar:
+    local-name: rosmon/rqt_rosmon
+    uri: https://github.com/xqms/rosmon-release/archive/release/noetic/rqt_rosmon/2.5.1-2.tar.gz
+    version: rosmon-release-release-noetic-rqt_rosmon-2.5.1-2
+
+# Stage ROS
+- tar:
+    local-name: stage_ros
+    uri: https://github.com/ros-gbp/stage_ros-release/archive/release/noetic/stage_ros/1.8.0-1.tar.gz
+    version: stage_ros-release-release-noetic-stage_ros-1.8.0-1
+
+# Teleop Twist Keyboard
+- tar:
+    local-name: teleop_twist_keyboard
+    uri: https://github.com/ros-gbp/teleop_twist_keyboard-release/archive/release/noetic/teleop_twist_keyboard/1.0.0-1.tar.gz
+    version: teleop_twist_keyboard-release-release-noetic-teleop_twist_keyboard-1.0.0-1
+
+# Vision OpenCV
+- tar:
+    local-name: vision_opencv/cv_bridge
+    uri: https://github.com/ros-gbp/vision_opencv-release/archive/release/noetic/cv_bridge/1.16.2-1.tar.gz
+    version: vision_opencv-release-release-noetic-cv_bridge-1.16.2-1
