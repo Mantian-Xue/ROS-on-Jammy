@@ -161,6 +161,17 @@ source ~/.bashrc
    sudo chown -R $USER:$USER /opt/ros/noetic
    ```
 
+5. **C++17 compatibility issues with rosmon_core**:
+   The build script automatically patches rosmon_core to use C++17 standard, which is required for log4cxx on Ubuntu 22.04. If you still encounter errors like:
+   ```
+   error: 'shared_mutex' in namespace 'std' does not name a type
+   ```
+   This means the patch wasn't applied properly. The build script handles this automatically, but you can manually verify the patch was applied by checking that `src/rosmon/rosmon_core/CMakeLists.txt` contains:
+   ```cmake
+   set(CMAKE_CXX_STANDARD 17)
+   set(CMAKE_CXX_STANDARD_REQUIRED ON)
+   ```
+
 ### 查看构建日志 (View Build Logs):
 
 Build logs are saved in the build directory. To check for errors:

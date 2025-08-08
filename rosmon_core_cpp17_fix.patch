@@ -1,0 +1,29 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,6 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
+ 	roslib
+ )
+ 
++# Set C++17 standard for log4cxx compatibility
++set(CMAKE_CXX_STANDARD 17)
++set(CMAKE_CXX_STANDARD_REQUIRED ON)
++set(CMAKE_CXX_EXTENSIONS OFF)
+ 
+ find_package(TinyXML REQUIRED)
+ 
+@@ -30,8 +34,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+ 
+ include(CheckCXXSourceCompiles)
+ 
++# Ensure C++17 is used
++if(CMAKE_CXX_STANDARD LESS 17)
++    message(FATAL_ERROR "rosmon_core requires C++17 or higher due to log4cxx dependencies")
++endif()
+ 
+-# Some versions of YAML-CPP need c++11
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
++# Some versions of YAML-CPP need c++11, but we're using C++17 now
++# The CMAKE_CXX_STANDARD setting above handles this
++# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ 
+ CHECK_CXX_SOURCE_COMPILES("#include <cstdlib>
