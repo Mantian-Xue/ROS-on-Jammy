@@ -133,6 +133,19 @@ fi
 
 print_success "Source code downloaded successfully"
 
+# Step 3.5: Apply source patches (Qt deprecations)
+print_status "Step 3.5: Applying source patches..."
+if [ -d "src/rosmon/rqt_rosmon" ]; then
+    print_status "Patching rqt_rosmon Qt roles..."
+    # Replace deprecated Qt roles to avoid -Werror build failures
+    find src/rosmon/rqt_rosmon -type f \( -name '*.cpp' -o -name '*.h' \) -print0 | xargs -0 sed -i \
+        -e 's/Qt::BackgroundColorRole/Qt::BackgroundRole/g' \
+        -e 's/Qt::TextColorRole/Qt::ForegroundRole/g'
+    print_success "Patched rqt_rosmon."
+else
+    print_warning "rqt_rosmon source not found; skipping rqt_rosmon patch."
+fi
+
 # Step 4: Create install directories
 print_status "Step 4: Creating install directories..."
 
