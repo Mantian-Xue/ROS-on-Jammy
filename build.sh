@@ -133,8 +133,10 @@ fi
 
 print_success "Source code downloaded successfully"
 
-# Step 3.5: Apply source patches (Qt deprecations)
+# Step 3.5: Apply source patches (Qt deprecations and C++17 fixes)
 print_status "Step 3.5: Applying source patches..."
+
+# Patch rqt_rosmon Qt roles
 if [ -d "src/rosmon/rqt_rosmon" ]; then
     print_status "Patching rqt_rosmon Qt roles..."
     # Replace deprecated Qt roles to avoid -Werror build failures
@@ -144,6 +146,24 @@ if [ -d "src/rosmon/rqt_rosmon" ]; then
     print_success "Patched rqt_rosmon."
 else
     print_warning "rqt_rosmon source not found; skipping rqt_rosmon patch."
+fi
+
+# Patch rosmon_core for C++17 compatibility (required for log4cxx on Ubuntu 22.04)
+if [ -f "src/rosmon/rosmon_core/CMakeLists.txt" ]; then
+    print_status "Patching rosmon_core for C++17 compatibility..."
+    
+    # Create backup
+    cp src/rosmon/rosmon_core/CMakeLists.txt src/rosmon/rosmon_core/CMakeLists.txt.backup
+    
+    # Add C++17 settings after find_package(catkin ...) block
+    sed -i '/find_package(catkin REQUIRED COMPONENTS/,/)/a\\n# Set C++17 standard for log4cxx compatibility on Ubuntu 22.04\nset(CMAKE_CXX_STANDARD 17)\nset(CMAKE_CXX_STANDARD_REQUIRED ON)\nset(CMAKE_CXX_EXTENSIONS OFF)\n' src/rosmon/rosmon_core/CMakeLists.txt
+    
+    # Comment out the conflicting -std=c++11 flag
+    sed -i 's/set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")/#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11") # Commented out - using CMAKE_CXX_STANDARD instead/' src/rosmon/rosmon_core/CMakeLists.txt
+    
+    print_success "Patched rosmon_core for C++17 compatibility."
+else
+    print_warning "rosmon_core source not found; skipping rosmon_core patch."
 fi
 
 # Step 4: Create install directories
